@@ -39,7 +39,11 @@
 		<div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden max-h-64 m-2">
 			<div class="px-4 py-2 bg-gray-700 flex justify-between">
 				<h2 class="text-lg font-bold text-white overflow-hidden">{{ $todo->title }}</h2>
-				<button class="bg-gray-700 hover:bg-gray-600 text-white font-bold px-4 rounded">Delete</button>
+				<form action="{{ route('todo.delete.id', ['id' => $todo->id] ); }}" method="post">
+					@csrf
+					@method('DELETE')
+					<button type="submit" class="bg-gray-700 hover:bg-gray-600 text-white font-bold px-4 rounded">Delete</button>
+				</form>
 			</div>
 			<div class="px-4 py-2 max-h-32 overflow-auto">
 				<p class="text-gray-400">
@@ -54,7 +58,7 @@
 			</div>
 		</div>
 		@endforeach
-		
+
 		@endguest
 	</div>
 

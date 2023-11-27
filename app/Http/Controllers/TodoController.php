@@ -36,4 +36,14 @@ class TodoController extends Controller
         return redirect("/");
     }
 
+    public function deleteTodo(Request $request){
+        $credentials['id'] = $request->route('id');
+        $credentials['user_id'] = Auth::id();
+        if (Todo::where('id', $credentials['id'])->where('user_id', $credentials['user_id'])->delete()){
+            return redirect('/');
+        }
+
+
+    }
+
 }
