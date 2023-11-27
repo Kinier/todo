@@ -12,8 +12,7 @@ class RegisterController extends Controller
 {
     public function register(Request $request): RedirectResponse
     {
-        $out = new \Symfony\Component\Console\Output\ConsoleOutput();
-        $out->writeln($request->all());
+        
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
