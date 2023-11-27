@@ -53,7 +53,9 @@
 			<div class="px-4 py-2 bg-gray-700">
 				<div class="flex justify-between items-center">
 					<p class="text-white">{{ $todo->created_at }}</p>
-					<button class="bg-gray-400 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded">Edit</button>
+					<a href="{{ route('todo.updatePage.id', ['id' => $todo->id] ); }}">
+						<button class="bg-gray-400 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded">Edit</button>
+					</a>
 				</div>
 			</div>
 		</div>

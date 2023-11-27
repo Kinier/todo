@@ -46,4 +46,30 @@ class TodoController extends Controller
 
     }
 
+    public function updatePage(Request $request){
+        $credentials['id'] = $request->route('id');
+        $credentials['user_id'] = Auth::id();
+        $todo = Todo::where('id', $credentials['id'])->where('user_id', $credentials['user_id'])->first();
+        if ($todo){
+            return view('/todoupdate', ['todo'=> $todo]);
+        }
+
+
+    }
+
+    public function updateTodo(Request $request)
+    {
+
+        $credentials = $request->validate([
+            'title' => ['required'],
+            'content' => ['required'],
+        ]);
+        $credentials['user_id'] = Auth::id();
+            Todo::where('id', $request->route('id'))->
+            where('user_id', $credentials['user_id'])->
+            update(['title'=>$credentials['title'], 'content' => $credentials['content']]);
+
+        return redirect("/");
+    }
+
 }

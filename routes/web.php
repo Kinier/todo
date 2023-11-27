@@ -36,6 +36,9 @@ Route::post('todo/create', [TodoController::class, "createTodo"])->name("todo.cr
 
 Route::delete('todo/delete/{id}', [TodoController::class, "deleteTodo"])->name("todo.delete.id")->middleware(Authenticate::class);
 
+Route::get('todo/update/{id}', [TodoController::class, "updatePage"])->name("todo.updatePage.id")->middleware(Authenticate::class);
+Route::put('todo/update/{id}', [TodoController::class, "updateTodo"])->name("todo.update.id")->middleware(Authenticate::class);
+
 
 // Route::get('todo/all', [TodoController::class, "getTodos"])->name("todo.all")->middleware(Authenticate::class);
 
