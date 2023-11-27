@@ -31,33 +31,30 @@
 			@endguest
 		</div>
 	</header>
-	<div class="container py-8 p-2 flex items-center justify-center min-w-full">
+	<div class="py-8 items-center justify-center grid grid-cols-4 max-w-screen-lg mx-auto gap-4">
 		@guest
 		<p class="text-2xl mb-4 font-bold">To use service create account using Register or sign in using Login button</p>
 		@else
-		<div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden max-w-xs max-h-64 m-2">
+		@foreach($todos as $todo)
+		<div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden max-h-64 m-2">
 			<div class="px-4 py-2 bg-gray-700 flex justify-between">
-				<h2 class="text-lg font-bold text-white overflow-hidden">Title</h2>
+				<h2 class="text-lg font-bold text-white overflow-hidden">{{ $todo->title }}</h2>
 				<button class="bg-gray-700 hover:bg-gray-600 text-white font-bold px-4 rounded">Delete</button>
 			</div>
 			<div class="px-4 py-2 max-h-32 overflow-auto">
 				<p class="text-gray-400">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, velit vel bibendum bibendum, sapien sapien bibendum sapien, vel bibendum sapien sapien vel sapien.
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, velit vel bibendum bibendum, sapien sapien bibendum sapien, vel bibendum sapien sapien vel sapien.
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, velit vel bibendum bibendum, sapien sapien bibendum sapien, vel bibendum sapien sapien vel sapien.
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, velit vel bibendum bibendum, sapien sapien bibendum sapien, vel bibendum sapien sapien vel sapien.
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, velit vel bibendum bibendum, sapien sapien bibendum sapien, vel bibendum sapien sapien vel sapien.
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, velit vel bibendum bibendum, sapien sapien bibendum sapien, vel bibendum sapien sapien vel sapien.
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, velit vel bibendum bibendum, sapien sapien bibendum sapien, vel bibendum sapien sapien vel sapien.
+					{{ $todo->content }}
 				</p>
 			</div>
 			<div class="px-4 py-2 bg-gray-700">
 				<div class="flex justify-between items-center">
-					<p class="text-white">November 26, 2023</p>
+					<p class="text-white">{{ $todo->created_at }}</p>
 					<button class="bg-gray-400 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded">Edit</button>
 				</div>
 			</div>
 		</div>
+		@endforeach
+		
 		@endguest
 	</div>
 

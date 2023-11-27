@@ -30,11 +30,15 @@ Route::post('auth/login', [LoginController::class, "login"])->name("auth.login")
 
 Route::get('auth/logout', [LogoutController::class, "logout"])->name("auth.logout");
 
-Route::get('todo/create', [TodoController::class, "index"])->name("todo.createPage")->middleware(Authenticate::class);
+Route::get('todo/create', [TodoController::class, "createPage"])->name("todo.createPage")->middleware(Authenticate::class);
 
 Route::post('todo/create', [TodoController::class, "createTodo"])->name("todo.create")->middleware(Authenticate::class);
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('todo/all', [TodoController::class, "getTodos"])->name("todo.all")->middleware(Authenticate::class);
+
+Route::get('/', [TodoController::class, "index"])->name("todo.index");
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
