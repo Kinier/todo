@@ -3,6 +3,7 @@
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\TodoController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\Authenticate;
 use Illuminate\Support\Facades\Route;
@@ -28,6 +29,10 @@ Route::post('auth/register', [RegisterController::class, "register"])->name("aut
 Route::post('auth/login', [LoginController::class, "login"])->name("auth.login");
 
 Route::get('auth/logout', [LogoutController::class, "logout"])->name("auth.logout");
+
+Route::get('todo/create', [TodoController::class, "index"])->name("todo.createPage")->middleware(Authenticate::class);
+
+Route::post('todo/create', [TodoController::class, "createTodo"])->name("todo.create")->middleware(Authenticate::class);
 
 Route::get('/', function () {
     return view('welcome');

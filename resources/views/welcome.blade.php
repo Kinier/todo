@@ -62,7 +62,7 @@
 	</div>
 
 	<div class="fixed bottom-0 right-0">
-		<a href="#">
+		<a href="{{ route('todo.create') }}">
 			<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold w-20 h-20 rounded-full m-2 text-4xl">
 				+
 			</button>
