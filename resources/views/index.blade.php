@@ -26,6 +26,7 @@
 			</div>
 			@else
 			<div class="flex">
+				<a href="{{ route('profile') }}" class="bg-gray-500 hover:bg-red-400 text-white font-bold py-2 px-4 rounded mr-2">Profile</a>
 				<a href="{{ route('auth.logout') }}" class="bg-gray-500 hover:bg-red-400 text-white font-bold py-2 px-4 rounded mr-2">Logout</a>
 			</div>
 			@endguest
